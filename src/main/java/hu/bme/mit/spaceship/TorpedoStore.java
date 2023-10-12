@@ -30,18 +30,18 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      new IllegalArgumentException("numberOfTorpedos");
+      new IllegalArgumentException("numberOfTorpedos"); //real problem, throw keyword missing
     }
 
     boolean success = false;
 
     // simulate random overheating of the launcher bay which prevents firing
-    Random generator = new Random();
+    Random generator = new Random(); //doesnt't look like a real proble, just cretaes a new random generator
     double r = generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
       // successful firing
-      this.torpedoCount =- numberOfTorpedos;
+      this.torpedoCount =- numberOfTorpedos; //it surely meant -=, it's a common mistake in C-like languages
       success = true;
     } else {
       // simulated failure
